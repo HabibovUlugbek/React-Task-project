@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import List from './List'
 import Alert from './Alert'
 
-getLocalStorage = () => {
+const getLocalStorage = () => {
   let list = localStorage.getItem("list")
   if(list){
     return JSON.parse(localStorage.getItem("list"))
@@ -67,9 +67,6 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("list" , JSON.stringify(list))    
-    return () => {
-      cleanup
-    }
   }, [list])
 
   return (
